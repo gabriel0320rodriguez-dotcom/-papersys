@@ -3,7 +3,7 @@
 // Conectado al backend Flask en localhost:5000
 // ============================================
 
-const API_URL = 'http://localhost:5000/api';
+const API_URL = 'https://papersys-production.up.railway.app/api';
 
 // ============ NAVIGATION ============
 const titles = {

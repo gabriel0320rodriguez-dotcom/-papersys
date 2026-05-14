@@ -1,0 +1,741 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>PaperSys — Gestión Integral de Papelería</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Outfit:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<div class="app">
+
+  <!-- ===== SIDEBAR ===== -->
+  <aside class="sidebar">
+    <div class="brand">
+      <div class="brand-mark">P</div>
+      <div>
+        <div class="brand-name">Paper<em>Sys</em></div>
+        <span class="brand-tag">Papelería · v1.0</span>
+      </div>
+    </div>
+
+    <div class="nav-label">Principal</div>
+    <nav class="nav">
+      <div class="nav-item active" data-target="dashboard">
+        <svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="9"/><rect x="14" y="3" width="7" height="5"/><rect x="14" y="12" width="7" height="9"/><rect x="3" y="16" width="7" height="5"/></svg>
+        <span>Inicio</span>
+      </div>
+      <div class="nav-item" data-target="productos">
+        <svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="m7.5 4.27 9 5.15"/><path d="M21 8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16Z"/><path d="m3.3 7 8.7 5 8.7-5"/><path d="M12 22V12"/></svg>
+        <span>Productos</span>
+      </div>
+      <div class="nav-item" data-target="inventario">
+        <svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="M20 7h-9"/><path d="M14 17H5"/><circle cx="17" cy="17" r="3"/><circle cx="7" cy="7" r="3"/></svg>
+        <span>Inventario</span>
+      </div>
+      <div class="nav-item" data-target="ventas">
+        <svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><circle cx="8" cy="21" r="1"/><circle cx="19" cy="21" r="1"/><path d="M2.05 2.05h2l2.66 12.42a2 2 0 0 0 2 1.58h9.78a2 2 0 0 0 1.95-1.57l1.65-7.43H5.12"/></svg>
+        <span>Registrar venta</span>
+      </div>
+      <div class="nav-item" data-target="historial">
+        <svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12a9 9 0 1 0 9-9 9.75 9.75 0 0 0-6.74 2.74L3 8"/><path d="M3 3v5h5"/><path d="M12 7v5l4 2"/></svg>
+        <span>Historial</span>
+      </div>
+    </nav>
+
+    <div class="nav-divider"></div>
+
+    <div class="nav-label">Gestión</div>
+    <nav class="nav">
+      <div class="nav-item" data-target="usuarios">
+        <svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+        <span>Usuarios</span>
+      </div>
+      <div class="nav-item" data-target="config">
+        <svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="M12.22 2h-.44a2 2 0 0 0-2 2v.18a2 2 0 0 1-1 1.73l-.43.25a2 2 0 0 1-2 0l-.15-.08a2 2 0 0 0-2.73.73l-.22.38a2 2 0 0 0 .73 2.73l.15.1a2 2 0 0 1 1 1.72v.51a2 2 0 0 1-1 1.74l-.15.09a2 2 0 0 0-.73 2.73l.22.38a2 2 0 0 0 2.73.73l.15-.08a2 2 0 0 1 2 0l.43.25a2 2 0 0 1 1 1.73V20a2 2 0 0 0 2 2h.44a2 2 0 0 0 2-2v-.18a2 2 0 0 1 1-1.73l.43-.25a2 2 0 0 1 2 0l.15.08a2 2 0 0 0 2.73-.73l.22-.39a2 2 0 0 0-.73-2.73l-.15-.08a2 2 0 0 1-1-1.74v-.5a2 2 0 0 1 1-1.74l.15-.09a2 2 0 0 0 .73-2.73l-.22-.38a2 2 0 0 0-2.73-.73l-.15.08a2 2 0 0 1-2 0l-.43-.25a2 2 0 0 1-1-1.73V4a2 2 0 0 0-2-2"/><circle cx="12" cy="12" r="3"/></svg>
+        <span>Configuración</span>
+      </div>
+    </nav>
+
+    <div class="sidebar-foot">
+      <div class="user-card">
+        <div class="avatar">A</div>
+        <div>
+          <div class="user-name">Alana Rodríguez</div>
+          <div class="user-role">Administrador</div>
+        </div>
+      </div>
+    </div>
+  </aside>
+
+  <!-- ===== MAIN ===== -->
+  <main class="main">
+
+    <!-- TOPBAR -->
+    <div class="topbar">
+      <div class="crumb">
+        <span class="crumb-pre" id="crumbPre">Módulo · 01</span>
+        <h2 class="crumb-title" id="crumbTitle">Panel <em>Principal</em></h2>
+      </div>
+      <div class="topbar-right">
+        <div class="search">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="11" cy="11" r="7"/><path d="m21 21-4.3-4.3"/></svg>
+          <input type="text" placeholder="Buscar en todo el sistema…">
+        </div>
+        <div style="position: relative;">
+            <button class="icon-btn" onclick="toggleNotificaciones()" title="Notificaciones">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"></path><path d="M13.73 21a2 2 0 0 1-3.46 0"></path></svg>
+              <span id="campanaBadge" style="display: none; position: absolute; top: -2px; right: -2px; width: 10px; height: 10px; background-color: #d32f2f; border-radius: 50%; border: 2px solid var(--bg-card);"></span>
+            </button>
+
+            <div id="panelNotificaciones" class="notif-panel">
+              <div class="notif-head">
+                <span style="font-weight: 600;">Notificaciones</span>
+                <button class="btn btn-ghost btn-sm" style="font-size: 11px; padding: 2px 6px;" onclick="limpiarNotificaciones()">Limpiar</button>
+              </div>
+              <div id="listaNotificaciones" class="notif-body">
+                <div class="notif-empty">No hay notificaciones nuevas</div>
+              </div>
+            </div>
+          </div>
+        <button class="icon-btn" title="Cerrar sesión">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"/><polyline points="16 17 21 12 16 7"/><line x1="21" y1="12" x2="9" y2="12"/></svg>
+        </button>
+      </div>
+    </div>
+
+    <!-- ===== MODULE: DASHBOARD ===== -->
+    <section class="module active" id="dashboard">
+      <div class="welcome">
+        <div class="welcome-text">
+          <h1>Buenos días, <em>Alana</em></h1>
+          <p id="dashWelcomeDesc">Aquí está un resumen general de tu papelería.</p>
+        </div>
+        <span class="date-pill" id="dashDatePill">Cargando fecha...</span>
+      </div>
+
+      <div class="stats-grid">
+        <div class="stat">
+          <div class="stat-label">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16Z"/></svg>
+            Productos
+          </div>
+          <div class="stat-value" style="font-family: sans-serif;" id="dashTotalProductos">0</div>
+          <div class="stat-sub" id="dashSubProds"><span class="up">Activos</span> en catálogo</div>
+        </div>
+        
+        <div class="stat">
+          <div class="stat-label">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
+            Ventas del día
+          </div>
+          <div class="stat-value" style="font-family: sans-serif;"><span class="price-currency">$</span><span id="dashVentasDia">0.00</span></div>
+          <div class="stat-sub" id="dashSubVentas">Calculando...</div>
+        </div>
+        
+        <div class="stat">
+          <div class="stat-label">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="8" cy="21" r="1"/><circle cx="19" cy="21" r="1"/><path d="M2.05 2.05h2l2.66 12.42a2 2 0 0 0 2 1.58h9.78a2 2 0 0 0 1.95-1.57l1.65-7.43H5.12"/></svg>
+            Transacciones
+          </div>
+          <div class="stat-value" style="font-family: sans-serif;" id="dashTransacciones">0</div>
+          <div class="stat-sub">ventas registradas hoy</div>
+        </div>
+        
+        <div class="stat">
+          <div class="stat-label">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M10.29 3.86 1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>
+            Stock bajo
+          </div>
+          <div class="stat-value" style="font-family: sans-serif;" id="dashStockBajo">0</div>
+          <div class="stat-sub"><span class="down">requieren</span> reabastecimiento</div>
+        </div>
+      </div>
+
+      <div class="dash-grid">
+          
+          <div class="card">
+            <div class="card-head">
+              <div>
+                <div class="card-title">Ventas de la <em>semana</em></div>
+                <div class="card-sub">Últimos 7 días · pesos mexicanos</div>
+              </div>
+              <button class="btn btn-ghost btn-sm">
+                Ver detalle &rarr;
+              </button>
+            </div>
+            
+            <div class="chart" id="dashChartBars"></div>
+            
+            <div style="display:flex;justify-content:space-between;margin-top:14px;font-size:12px;color:var(--ink-soft)">
+              <span>Total semana: <strong style="font-family:var(--mono);color:var(--ink)" id="dashTotalSemana">$0.00</strong></span>
+              <span>Promedio diario: <strong style="font-family:var(--mono);color:var(--ink)" id="dashPromedioDiario">$0.00</strong></span>
+            </div>
+          </div>
+
+          <div class="card">
+            <div class="card-head" style="margin-bottom: 20px;">
+              <div>
+                <div class="card-title">Más <em>vendidos</em></div>
+                <div class="card-sub">TOP 5 DEL MES</div>
+              </div>
+            </div>
+            
+            <div class="top-list" id="dashTopList"></div>
+          </div>
+          
+        </div>
+
+      <div class="alert-banner" id="dashAlertBanner">
+        <div class="alert-icon">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10.29 3.86 1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>
+        </div>
+        <div class="alert-body">
+          <div class="alert-title" id="dashAlertTitle">0 productos con existencias bajas</div>
+          <div class="alert-text">Algunos artículos están por debajo del nivel recomendado. Revisa el módulo de inventario para reabastecer.</div>
+        </div>
+        <button class="alert-action" onclick="goTo('inventario')">Ver inventario →</button>
+      </div>
+    </section>
+
+    <!-- ===== MODULE: PRODUCTOS ===== -->
+    <section class="module" id="productos">
+      <div class="welcome">
+        <div class="welcome-text">
+          <h1>Gestión de <em>Productos</em></h1>
+          <p>Administra los productos de tu papelería: nombre, precio, categoría y cantidad en existencia.</p>
+        </div>
+        <button class="btn btn-primary" onclick="abrirModalProducto()">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+          Agregar producto
+        </button>
+      </div>
+
+      <div class="toolbar">
+        <div class="toolbar-left">
+          <input type="text" id="filtroBusqueda" class="input input-search" placeholder="Buscar producto por nombre o SKU…">
+          
+          <select id="filtroCategoria" class="select">
+            <option value="">Todas las categorías</option>
+            <option value="Cuadernos">Cuadernos</option>
+            <option value="Escritura">Escritura</option>
+            <option value="Pegamentos">Pegamentos</option>
+            <option value="Accesorios">Accesorios</option>
+            <option value="Arte y Dibujo">Arte y Dibujo</option>
+            <option value="Oficina">Oficina</option>
+            <option value="Papel y Cartulinas">Papel y Cartulinas</option>
+            <option value="Regalos y Envolturas">Regalos y Envolturas</option>
+          </select>
+          
+          <select id="filtroEstado" class="select">
+            <option value="">Cualquier estado</option>
+            <option value="ok">Disponible</option>
+            <option value="low">Stock bajo</option>
+            <option value="out">Agotado</option>
+          </select>
+        </div>
+        <div class="toolbar-left">
+          <button class="btn btn-ghost btn-sm" onclick="exportarAExcel()">
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+            Exportar
+          </button>
+        </div>
+      </div>
+
+      <div class="table-wrap">
+        <table class="table">
+          <thead>
+            <tr>
+              <th style="width:60px">ID</th>
+              <th>Producto</th>
+              <th>Categoría</th>
+              <th style="text-align:right">Precio</th>
+              <th style="text-align:center">Existencia</th>
+              <th>Estado</th>
+              <th style="text-align:right">Acciones</th>
+            </tr>
+          </thead>
+          <tbody id="productsBody"></tbody>
+        </table>
+        <div class="table-foot">
+          <span id="infoPaginacion">Mostrando 0 productos</span>
+          <div class="pager" id="botonesPaginacion">
+            </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== MODULE: INVENTARIO ===== -->
+    <section class="module" id="inventario">
+      <div class="welcome">
+        <div class="welcome-text">
+          <h1>Control de <em>Inventario</em></h1>
+          <p>Consulta el estado actual de tus existencias. El inventario se actualiza automáticamente al registrar ventas.</p>
+        </div>
+        <button class="btn btn-ghost">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M21 12a9 9 0 1 1-9-9c2.52 0 4.93 1 6.74 2.74L21 8"/><path d="M21 3v5h-5"/></svg>
+          Actualizar
+        </button>
+      </div>
+
+      <div class="inv-stats">
+        <div class="inv-stat">
+          <div class="inv-stat-icon ok">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+          </div>
+          <div>
+            <div class="inv-stat-num" id="statInvDisponibles">0</div>
+            <div class="inv-stat-lbl">Disponibles · > 10 unidades</div>
+          </div>
+        </div>
+        <div class="inv-stat">
+          <div class="inv-stat-icon low">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10.29 3.86 1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>
+          </div>
+          <div>
+            <div class="inv-stat-num" id="statInvBajos">0</div>
+            <div class="inv-stat-lbl">Stock bajo · entre 1 y 10</div>
+          </div>
+        </div>
+        <div class="inv-stat">
+          <div class="inv-stat-icon out">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="4.93" y1="4.93" x2="19.07" y2="19.07"/></svg>
+          </div>
+          <div>
+            <div class="inv-stat-num" id="statInvAgotados">0</div>
+            <div class="inv-stat-lbl">Agotados · 0 unidades</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="toolbar">
+        <div class="toolbar-left">
+          <input class="input input-search" id="invBusquedaFiltro" placeholder="Buscar en el inventario…">
+          <select class="select" id="invCategoriaFiltro">
+            <option value="">Todas las categorías</option>
+            <option value="Cuadernos">Cuadernos</option>
+            <option value="Escritura">Escritura</option>
+            <option value="Pegamentos">Pegamentos</option>
+            <option value="Accesorios">Accesorios</option>
+            <option value="Arte y Dibujo">Arte y Dibujo</option>
+            <option value="Oficina">Oficina</option>
+            <option value="Papel y Cartulinas">Papel y Cartulinas</option>
+            <option value="Regalos y Envolturas">Regalos y Envolturas</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="table-wrap">
+        <table class="table">
+          <thead>
+            <tr>
+              <th style="width:60px">ID</th>
+              <th>Producto</th>
+              <th>Categoría</th>
+              <th style="text-align:center">Cantidad</th>
+              <th>Nivel</th>
+              <th>Estado</th>
+              <th style="text-align:right">Última venta</th>
+            </tr>
+          </thead>
+          <tbody id="inventoryBody"></tbody>
+        </table>
+        <div class="table-foot">
+          <span id="infoPaginacionInventario">Mostrando 0 productos</span>
+          <div class="pager" id="botonesPaginacionInventario">
+            </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== MODULE: REGISTRAR VENTA ===== -->
+    <section class="module" id="ventas">
+      <div class="welcome">
+        <div class="welcome-text">
+          <h1>Registrar <em>Venta</em></h1>
+          <p>Agrega productos a la venta y registra la transacción. El inventario se actualizará automáticamente.</p>
+        </div>
+        <span class="date-pill">Venta #00284 · 10 mayo 2026</span>
+      </div>
+
+      <div class="sale-grid">
+        <div class="card">
+          <div class="card-head">
+            <div>
+              <div class="card-title">Productos <em>seleccionados</em></div>
+              <div class="card-sub">Ajusta cantidades o elimina líneas</div>
+            </div>
+          </div>
+
+          <div class="add-product-search">
+            <input id="ventaBusqueda" class="input input-search" placeholder="Buscar producto para agregar a la venta…" style="width:100%" autocomplete="off">
+            
+            <div id="ventaSugerencias" class="suggest-list"></div>
+          </div>
+
+          <div id="cartList" class="cart-list">
+            <div class="cart-empty" id="cartEmpty">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><circle cx="8" cy="21" r="1"/><circle cx="19" cy="21" r="1"/><path d="M2.05 2.05h2l2.66 12.42a2 2 0 0 0 2 1.58h9.78a2 2 0 0 0 1.95-1.57l1.65-7.43H5.12"/></svg>
+              <p>Sin productos aún</p>
+              <span style="font-size:12.5px">Selecciona un producto de la lista para comenzar</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="card" style="position:sticky;top:90px;align-self:start">
+          <div class="card-head">
+            <div>
+              <div class="card-title">Resumen de <em>venta</em></div>
+              <div class="card-sub">Datos de la transacción</div>
+            </div>
+          </div>
+
+          <div class="field-group">
+            <label class="field-label">Método de pago</label>
+            <select id="ventaMetodoPago" class="field-input">
+              <option value="efectivo">Efectivo</option>
+              <option value="tarjeta">Tarjeta</option>
+              <option value="transferencia">Transferencia</option>
+            </select>
+          </div>
+
+          <div class="field-group">
+            <label class="field-label">Cliente (opcional)</label>
+            <input class="field-input" placeholder="Cliente general">
+          </div>
+
+          <div class="summary">
+            <div class="sum-row"><span>Subtotal</span><span class="val" id="sumSubtotal">$0.00</span></div>
+            <div class="sum-row"><span>Total de productos</span><span class="val" id="sumCount">0</span></div>
+            <div class="sum-row"><span>Descuento</span><span class="val">$0.00</span></div>
+            <div class="sum-total">
+              <div class="lbl">Total</div>
+              <div class="val" id="sumTotal">$0<small>.00</small></div>
+            </div>
+          </div>
+
+          <div style="display:flex;gap:10px;margin-top:24px">
+            <button class="btn btn-ghost" style="flex:1" onclick="clearCart()">
+              <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="3 6 5 6 21 6"/><path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"/></svg>
+              Limpiar
+            </button>
+            <button class="btn btn-primary" style="flex:2" onclick="registrarVentaEnBD()">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><polyline points="20 6 9 17 4 12"/></svg>
+              Registrar venta
+            </button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== MODULE: HISTORIAL ===== -->
+    <section class="module" id="historial">
+      <div class="welcome">
+        <div class="welcome-text">
+          <h1>Historial de <em>Ventas</em></h1>
+          <p>Consulta todas las transacciones registradas en el sistema. Filtra por fecha o método de pago.</p>
+        </div>
+        <button class="btn btn-ghost">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+          Exportar reporte
+        </button>
+      </div>
+
+      <div class="history-summary">
+        <div class="stat">
+          <div class="stat-label">Ventas hoy</div>
+          <div class="stat-value" id="statVentasHoy">0</div>
+          <div class="stat-sub">transacciones</div>
+        </div>
+        <div class="stat">
+          <div class="stat-label">Ingreso del día</div>
+          <div class="stat-value"><span class="currency">$</span><span id="statIngresoDia">0.00</span></div>
+          <div class="stat-sub" id="statFechaHoy">--</div>
+        </div>
+        <div class="stat">
+          <div class="stat-label">Esta semana</div>
+          <div class="stat-value"><span class="currency">$</span><span id="statEstaSemana">0.00</span></div>
+          <div class="stat-sub">7 días</div>
+        </div>
+        <div class="stat">
+          <div class="stat-label">Ticket promedio</div>
+          <div class="stat-value"><span class="currency">$</span><span id="statTicketPromedio">0.00</span></div>
+          <div class="stat-sub">por venta general</div>
+        </div>
+      </div>
+
+      <div class="toolbar">
+        <div class="toolbar-left">
+          <input type="date" class="input" id="histFechaFiltro">
+          <select class="select" id="histMetodoFiltro">
+            <option value="">Todos los métodos</option>
+            <option value="efectivo">Efectivo</option>
+            <option value="tarjeta">Tarjeta</option>
+            <option value="transferencia">Transferencia</option>
+          </select>
+          <input class="input input-search" id="histBusquedaFiltro" placeholder="Buscar por # de venta…">
+        </div>
+      </div>
+
+      <div class="table-wrap">
+        <table class="table">
+          <thead>
+            <tr>
+              <th>Venta #</th>
+              <th>Fecha y hora</th>
+              <th>Productos</th>
+              <th>Método</th>
+              <th>Cajero</th>
+              <th style="text-align:right">Total</th>
+              <th style="text-align:right">Acciones</th>
+            </tr>
+          </thead>
+          <tbody id="historyBody"></tbody>
+        </table>
+
+        <div class="table-foot">
+          <span id="infoPaginacionHistorial">Mostrando 0 ventas</span>
+          <div class="pager" id="botonesPaginacionHistorial"></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== MODULE: USUARIOS ===== -->
+    <section class="module" id="usuarios">
+      <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 30px;">
+        <div>
+          <h1 style="font-size: 28px; margin-bottom: 8px;">Gestión de <em>Usuarios</em></h1>
+          <p style="color: var(--ink-soft); max-width: 600px;">Administra el acceso al sistema. Crea cuentas, asigna roles y controla los permisos de cada miembro.</p>
+        </div>
+        <button class="btn btn-primary" onclick="abrirModalUsuario()">+ Nuevo usuario</button>
+      </div>
+
+      <div class="table-wrap">
+        <table class="table">
+          <thead>
+            <tr>
+              <th>USUARIO</th>
+              <th>CORREO</th>
+              <th>ROL</th>
+              <th>ÚLTIMO ACCESO</th>
+              <th>ESTADO</th>
+              <th style="text-align:right">ACCIONES</th>
+            </tr>
+          </thead>
+          <tbody id="usuariosBody">
+            </tbody>
+        </table>
+        
+        <div class="table-foot">
+          <span id="infoPaginacionUsuarios">Mostrando 0 usuarios</span>
+          <div class="pager" id="botonesPaginacionUsuarios"></div>
+        </div>
+        </div>
+    </section>
+
+    <!-- ===== MODULE: CONFIGURACIÓN ===== -->
+    <section class="module" id="config">
+      <div class="welcome">
+        <div class="welcome-text">
+          <h1>Configuración <em>del Sistema</em></h1>
+          <p>Personaliza la información de tu negocio y ajusta las preferencias generales de PaperSys.</p>
+        </div>
+      </div>
+
+      <div class="settings-grid">
+        <div class="card">
+          <div class="card-head">
+            <div>
+              <div class="card-title">Datos del <em>Negocio</em></div>
+              <div class="card-sub">Información básica de la papelería</div>
+            </div>
+          </div>
+          <div class="field-group">
+            <label class="field-label">Nombre del negocio</label>
+            <input class="field-input" id="confNombre" value="Papelería La Esquina">
+          </div>
+          <div class="field-group">
+            <label class="field-label">Dirección</label>
+            <input class="field-input" id="confDireccion" value="Av. Universidad 123, Villahermosa, Tabasco">
+          </div>
+          <div class="field-group">
+            <label class="field-label">Teléfono</label>
+            <input class="field-input" id="confTelefono" value="993 123 4567">
+          </div>
+          <div class="field-group">
+            <label class="field-label">RFC (opcional)</label>
+            <input class="field-input" id="confRFC" placeholder="XAXX010101000">
+          </div>
+          <div class="field-group">
+            <label class="field-label">Descripción</label>
+            <textarea class="field-input field-textarea" id="confDesc">Papelería local especializada en artículos escolares y de oficina, atendiendo a la comunidad universitaria desde 2026.</textarea>
+          </div>
+          <button class="btn btn-primary" style="margin-top:8px" onclick="guardarConfiguracion()">
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><polyline points="20 6 9 17 4 12"/></svg>
+            Guardar cambios
+          </button>
+        </div>
+
+        <div class="card">
+          <div class="card-head">
+            <div>
+              <div class="card-title">Preferencias <em>Generales</em></div>
+              <div class="card-sub">Comportamiento del sistema</div>
+            </div>
+          </div>
+
+          <div class="switch">
+            <div class="switch-info">
+              <div class="switch-title">Alertas de stock bajo</div>
+              <div class="switch-desc">Notificar cuando un producto baje de 10 unidades</div>
+            </div>
+            <div class="toggle" id="prefStock" onclick="alternarToggle('prefStock'); guardarPreferencias()"></div>
+          </div>
+
+          <div class="switch">
+            <div class="switch-info">
+              <div class="switch-title">Confirmar antes de eliminar</div>
+              <div class="switch-desc">Pedir confirmación al eliminar productos o ventas</div>
+            </div>
+            <div class="toggle" id="prefConfirmar" onclick="alternarToggle('prefConfirmar'); guardarPreferencias()"></div>
+          </div>
+
+          <div class="switch">
+            <div class="switch-info">
+              <div class="switch-title">Modo oscuro</div>
+              <div class="switch-desc">Cambiar la interfaz a colores oscuros para descansar la vista</div>
+            </div>
+            <div class="toggle" id="toggleDarkMode" onclick="alternarModoOscuro()"></div>
+          </div>
+          <div class="switch">
+            <div class="switch-info">
+              <div class="switch-title">Modo de respaldo automático</div>
+              <div class="switch-desc">Hacer copia de seguridad de la base de datos cada noche</div>
+            </div>
+            <div class="toggle" id="prefRespaldo" onclick="alternarToggle('prefRespaldo'); guardarPreferencias()"></div>
+          </div>
+
+          <hr style="border:none; border-top:1px solid var(--border); margin:24px 0; position:relative;">
+          
+          <div class="field-group">
+            <label class="field-label">MONEDA</label>
+            <select class="select" id="prefMoneda" onchange="guardarPreferencias()">
+              <option value="MXN">Peso Mexicano (MXN $)</option>
+              <option value="USD">Dólar Estadounidense (USD $)</option>
+            </select>
+          </div>
+          <div class="field-group">
+            <label class="field-label">ZONA HORARIA</label>
+            <select class="select" id="prefZona" onchange="guardarPreferencias()">
+              <option value="GMT-6">Centro de México (GMT-6)</option>
+              <option value="GMT-7">Pacífico Mexicano (GMT-7)</option>
+            </select>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+    <!-- ===== MODAL: AGREGAR/EDITAR PRODUCTO ===== -->
+    <div class="modal-overlay" id="modalProducto">
+      <div class="modal">
+        <div class="modal-head">
+          <div>
+            <div class="modal-title" id="modalTitulo">Agregar <em>Producto</em></div>
+            <div class="modal-sub">Completa los datos del artículo</div>
+          </div>
+          <button class="modal-close" onclick="cerrarModalProducto()">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+          </button>
+        </div>
+        <div class="modal-body">
+          <input type="hidden" id="prodId" value="">
+          <div class="field-group">
+            <label class="field-label">Nombre del producto</label>
+            <input type="text" class="field-input" id="prodNombre" placeholder="Ej. Cuaderno profesional 100h">
+          </div>
+          <div class="form-row">
+            <div class="field-group">
+              <label class="field-label">Precio (MXN)</label>
+              <input type="number" step="0.01" min="0" class="field-input" id="prodPrecio" placeholder="0.00">
+            </div>
+            <div class="field-group">
+              <label class="field-label">Cantidad</label>
+              <input type="number" min="0" class="field-input" id="prodCantidad" placeholder="0">
+            </div>
+          </div>
+          <div class="field-group">
+            <label class="field-label">Categoría</label>
+            <select class="field-input" id="prodCategoria">
+              <option value="">Selecciona una categoría…</option>
+            </select>
+          </div>
+        </div>
+        <div class="modal-foot">
+          <button class="btn btn-ghost" onclick="cerrarModalProducto()">Cancelar</button>
+          <button class="btn btn-primary" onclick="guardarProducto()">
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><polyline points="20 6 9 17 4 12"/></svg>
+            Guardar
+          </button>
+        </div>
+      </div>
+    </div>
+
+<div class="modal-overlay" id="modalUsuario">
+      <div class="modal">
+        <div class="modal-head">
+          <div>
+            <div class="modal-title" id="modalUsuarioTitle">Registrar <em>Usuario</em></div>
+            <div class="modal-sub">Crea un nuevo acceso al sistema</div>
+          </div>
+          <button class="modal-close" onclick="cerrarModalUsuario()">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+          </button>
+        </div>
+        <div class="modal-body">
+          <form id="formUsuario">
+            <div class="field-group">
+              <label class="field-label">Nombre Completo</label>
+              <input type="text" id="usuNombre" class="field-input" placeholder="Ej. Alana Rodríguez" required>
+            </div>
+            <div class="field-group">
+              <label class="field-label">Correo Electrónico</label>
+              <input type="email" id="usuCorreo" class="field-input" placeholder="ejemplo@papersys.mx" required>
+            </div>
+            <div class="field-group">
+              <label class="field-label">Contraseña</label>
+              <input type="password" id="usuPassword" class="field-input" placeholder="Mínimo 6 caracteres" required minlength="6">
+            </div>
+            <div class="field-group">
+              <label class="field-label">Rol en el sistema</label>
+              <select id="usuRol" class="field-input">
+                <option value="empleado">Empleado (Cajero)</option>
+                <option value="admin">Administrador (Control Total)</option>
+              </select>
+            </div>
+          </form>
+        </div>
+        <div class="modal-foot">
+          <button class="btn btn-ghost" onclick="cerrarModalUsuario()">Cancelar</button>
+          <button class="btn btn-primary" onclick="guardarUsuario()">
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><polyline points="20 6 9 17 4 12"/></svg>
+            Guardar Usuario
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- ===== CONTENEDOR DE TOASTS (NOTIFICACIONES) ===== -->
+    <div id="toastContainer"></div>  
+
+</div>
+
+<script src="script.js"></script>
+
+</body>
+</html>

@@ -556,3 +556,5 @@ if __name__ == '__main__':
     print("📡 Servidor corriendo en: http://localhost:5000")
     print("⏹️  Presiona CTRL+C para detener\n")
     app.run(debug=True, port=5000)
+
+# Hack para forzar el despliegue en Railway
